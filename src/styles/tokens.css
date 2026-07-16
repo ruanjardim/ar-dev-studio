@@ -1,58 +1,42 @@
 :root {
-  /* Brand colors */
-  --color-brand-primary: #2563eb;
-  --color-brand-secondary: #3b82f6;
-  --color-brand-soft: #dbeafe;
+  color-scheme: light;
 
-  /* Neutral colors */
-  --color-background: #f8fafc;
+  --color-brand-navy: #0d2a4a;
+  --color-brand-steel: #43627f;
+  --color-brand-ice: #a4bad2;
+  --color-brand-navy-rgb: 13 42 74;
+  --color-brand-steel-rgb: 67 98 127;
+  --color-brand-ice-rgb: 164 186 210;
+  --color-canvas-rgb: 246 249 252;
+
+  --color-logo-stroke: var(--color-brand-navy);
+  --color-logo-top: #ffffff;
+  --color-logo-left: var(--color-brand-ice);
+  --color-logo-right: var(--color-brand-steel);
+
+  --color-canvas: #f6f9fc;
   --color-surface: #ffffff;
-  --color-surface-muted: #f1f5f9;
-  --color-border: #dbe3ee;
+  --color-surface-raised: #fbfdff;
+  --color-surface-muted: #eef4f9;
+  --color-ink: #171a25;
+  --color-text: #2b3c50;
+  --color-muted: #5f7082;
+  --color-line: #d8e3ee;
+  --color-line-strong: #a4bad2;
+  --color-accent: var(--color-brand-steel);
+  --color-accent-strong: var(--color-brand-navy);
+  --color-accent-soft: #e5eef7;
+  --color-blueprint: var(--color-brand-steel);
+  --color-signal: var(--color-brand-ice);
+  --color-warning: var(--color-brand-steel);
+  --color-surface-translucent: rgb(255 255 255 / 78%);
+  --color-inverse-muted: rgb(255 255 255 / 68%);
+  --color-inverse-line: rgb(255 255 255 / 14%);
 
-  /* Text colors */
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-muted: #64748b;
-  --color-text-inverse: #ffffff;
-
-  /* Feedback colors */
-  --color-success: #16a34a;
-  --color-warning: #d97706;
-  --color-danger: #dc2626;
-  --color-info: #0284c7;
-
-  /* Typography */
-  --font-family-base:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
 
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-md: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  --font-size-5xl: 3rem;
-  --font-size-6xl: 3.75rem;
-
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  --line-height-tight: 1.1;
-  --line-height-heading: 1.2;
-  --line-height-base: 1.6;
-
-  /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -64,33 +48,51 @@
   --space-12: 3rem;
   --space-16: 4rem;
   --space-20: 5rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
 
-  /* Layout */
-  --container-width: 1200px;
-  --container-padding: clamp(1rem, 4vw, 2rem);
-  --header-height: 5rem;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
 
-  /* Borders */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-pill: 999px;
+  --shadow-subtle: 0 1rem 3rem rgb(var(--color-brand-navy-rgb) / 8%);
+  --shadow-technical: 0 1.5rem 4rem rgb(var(--color-brand-navy-rgb) / 14%);
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
-  --shadow-md: 0 12px 30px rgb(15 23 42 / 0.08);
-  --shadow-lg: 0 24px 60px rgb(15 23 42 / 0.12);
+  --container: 72rem;
+  --header-height: 4.75rem;
 
-  /* Motion */
-  --transition-fast: 160ms ease;
-  --transition-base: 240ms ease;
-  --transition-slow: 420ms ease;
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-slow: 520ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-  /* Layering */
-  --z-header: 100;
-  --z-overlay: 200;
-  --z-modal: 300;
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-canvas: #071827;
+  --color-canvas-rgb: 7 24 39;
+  --color-surface: #0d2033;
+  --color-surface-raised: #12304a;
+  --color-surface-muted: #163957;
+  --color-ink: #f5f9fd;
+  --color-text: #d9e5ef;
+  --color-muted: #a8bbcc;
+  --color-line: #284862;
+  --color-line-strong: #43627f;
+  --color-accent: var(--color-brand-ice);
+  --color-accent-strong: #ffffff;
+  --color-accent-soft: #173a58;
+  --color-blueprint: var(--color-brand-ice);
+  --color-signal: #ffffff;
+  --color-warning: var(--color-brand-ice);
+  --color-surface-translucent: rgb(18 48 74 / 78%);
+  --color-inverse-muted: rgb(217 229 239 / 72%);
+  --color-inverse-line: rgb(164 186 210 / 18%);
+
+  --color-logo-stroke: #ffffff;
+  --color-logo-top: #ffffff;
+  --color-logo-left: var(--color-brand-ice);
+  --color-logo-right: var(--color-brand-steel);
+
+  --shadow-subtle: 0 1rem 3rem rgb(0 0 0 / 22%);
+  --shadow-technical: 0 1.5rem 4rem rgb(0 0 0 / 28%);
 }

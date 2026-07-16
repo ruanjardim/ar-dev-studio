@@ -1,16 +1,14 @@
-﻿import "./styles/base.css";
+import { App } from "./app";
+import { applyStructuredData } from "./scripts/metadata";
+import { setupThemeToggle } from "./scripts/theme";
 
-const app = document.querySelector<HTMLDivElement>("#app");
+const root = document.querySelector<HTMLDivElement>("#app");
 
-if (!app) {
-  throw new Error("Elemento #app não encontrado.");
+if (!root) {
+  throw new Error("Elemento raiz #app não encontrado.");
 }
 
-app.innerHTML = `
-  <main>
-    <section class="container" style="padding: 4rem 0;">
-      <h1>AR Dev Studio</h1>
-      <p>Arquitetura antes do código. Evolução além da entrega.</p>
-    </section>
-  </main>
-`;
+root.innerHTML = App();
+applyStructuredData();
+setupThemeToggle();
+document.documentElement.classList.add("is-ready");

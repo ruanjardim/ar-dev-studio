@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" role="img" aria-labelledby="title">
-  <title id="title">AR Dev Studio</title>
-  <rect width="36" height="36" rx="8" fill="#F6F9FC" />
+  <title id="title">Logo Cube AR Dev Studio</title>
   <path fill="#FFFFFF" d="M18 3 31 10.5 18 18 5 10.5 18 3Z" />
   <path fill="#A4BAD2" d="M5 10.5 18 18v15L5 25.5v-15Z" />
   <path fill="#43627F" d="M31 10.5v15L18 33V18l13-7.5Z" />
