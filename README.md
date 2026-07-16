@@ -137,3 +137,66 @@ Pontos a conferir:
 - [x] Build de produção aprovado.
 - [x] Validação final no navegador.
 - [ ] Publicação privada no GitHub.
+
+## Sprint 4 — Decision Layer
+
+### Objetivo
+
+Evoluir a Home para apoiar decisão comercial e técnica, explicando quando a AR Dev Studio entra, quais padrões sustentam a entrega, como a maturidade técnica aparece e quais dúvidas precisam ser alinhadas antes do contato.
+
+### Arquitetura da Sprint
+
+A página continua composta em `src/pages/Home.ts`, preservando o modelo de seções independentes. A Sprint 4 adiciona blocos orientados à decisão sem alterar o contrato das Sprints anteriores.
+
+Novos componentes:
+
+- `src/components/DiagnosticFit.ts`: sinais de que o cliente precisa de arquitetura e evolução.
+- `src/components/StackStandards.ts`: padrões técnicos por camada de interface, aplicação e operação.
+- `src/components/MaturitySignals.ts`: impactos práticos da maturidade do sistema.
+- `src/components/Faq.ts`: perguntas institucionais para alinhar posicionamento.
+
+Arquivos evoluídos:
+
+- `src/pages/Home.ts`: nova ordem de composição da Home.
+- `src/components/Header.ts`: navegação ajustada para Diagnóstico, Serviços, Processo e FAQ.
+- `src/styles/layout.css`: novas faixas de seção.
+- `src/styles/components.css`: estilos dos blocos de diagnóstico, stack, maturidade e FAQ.
+- `src/styles/animations.css`: entrada discreta para os novos blocos.
+
+### Validação no navegador
+
+Pontos a conferir:
+
+- A navegação deve apontar para `Diagnóstico`, `Serviços`, `Processo` e `FAQ`.
+- A Home deve conter as âncoras `diagnostico`, `stack`, `maturidade` e `faq`.
+- A seção `FAQ` deve usar elementos nativos `details` e `summary`.
+- O mobile deve manter leitura em coluna sem overflow horizontal.
+- O desktop deve organizar diagnóstico, stack e maturidade em grades de três colunas.
+- O CTA final deve continuar apontando para contato.
+- Mobile validado em `390x844`.
+- Desktop validado em `1440x900`.
+- Sem overflow horizontal.
+- Sem erros de console da página.
+
+### Critérios de aceite
+
+- A página explica quando a AR Dev Studio deve ser acionada.
+- A stack é apresentada como padrão de qualidade, não como vitrine visual.
+- A maturidade técnica é traduzida em benefício prático.
+- O FAQ reforça o posicionamento de Software House.
+- A arquitetura continua modular, sem framework de UI e com CSS puro.
+- O build de produção continua aprovado com Vite 8 e TypeScript estrito.
+
+### Checklist
+
+- [x] Arquitetura da Sprint definida.
+- [x] Componente de diagnóstico criado.
+- [x] Componente de stack e padrões criado.
+- [x] Componente de maturidade criado.
+- [x] Componente de FAQ criado.
+- [x] Home recomposta.
+- [x] Header atualizado.
+- [x] CSS modular atualizado.
+- [x] Build de produção aprovado.
+- [x] Validação final no navegador.
+- [x] Pronto para commit.

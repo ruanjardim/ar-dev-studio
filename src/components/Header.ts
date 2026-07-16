@@ -4,10 +4,10 @@ type NavigationItem = {
 };
 
 const navigationItems: NavigationItem[] = [
-  { label: "Arquitetura", href: "#arquitetura" },
+  { label: "Diagnóstico", href: "#diagnostico" },
   { label: "Serviços", href: "#servicos" },
   { label: "Processo", href: "#processo" },
-  { label: "Entrega", href: "#entrega" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 function LogoCube(): string {
