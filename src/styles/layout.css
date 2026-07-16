@@ -75,6 +75,11 @@
   border-top: 1px solid var(--color-line);
 }
 
+.section--labs {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-line);
+}
+
 .section--final-cta {
   padding-block: var(--space-12);
   background: var(--color-surface);

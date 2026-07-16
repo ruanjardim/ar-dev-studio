@@ -12,44 +12,44 @@ export function Hero(): string {
           <p class="eyebrow">Software House orientada por arquitetura</p>
           <h1 id="hero-title">Projetamos sistemas que evoluem.</h1>
           <p class="hero__lead">
-            A AR Dev Studio constrói bases digitais com engenharia, clareza técnica
-            e visão de produto para empresas que precisam crescer sem perder controle.
+            A AR Dev Studio apresenta, planeja e constr&oacute;i sistemas web sob medida
+            para empresas que precisam transformar processos em produto digital confi&aacute;vel.
           </p>
 
-          <div class="hero__actions" aria-label="Ações principais">
-            <a class="button button--primary" href="#contato">Iniciar arquitetura</a>
-            <a class="button button--secondary" href="#manifesto">Ler manifesto</a>
+          <div class="hero__actions" aria-label="Acoes principais">
+            <a class="button button--primary" href="#contato">Conversar sobre projeto</a>
+            <a class="button button--secondary" href="#servicos">Ver servi&ccedil;os</a>
           </div>
 
           <dl class="hero__signals" aria-label="Pilares da AR Dev Studio">
             <div>
               <dt>01</dt>
-              <dd>Arquitetura antes do código</dd>
+              <dd>Sistemas sob medida</dd>
             </div>
             <div>
               <dt>02</dt>
-              <dd>Evolução além da entrega</dd>
+              <dd>Clareza antes da entrega</dd>
             </div>
             <div>
               <dt>03</dt>
-              <dd>Sistemas preparados para escala</dd>
+              <dd>Evolu&ccedil;&atilde;o planejada</dd>
             </div>
           </dl>
         </div>
 
-        <aside class="hero-authority" aria-label="Painel técnico da AR Dev Studio">
+        <aside class="hero-authority" aria-label="Resumo da forma de trabalho da AR Dev Studio">
           <div class="hero-authority__header">
-            <span>Architecture Readiness</span>
-            <strong>Enterprise Web</strong>
+            <span>Da ideia ao sistema</span>
+            <strong>Web sob medida</strong>
           </div>
 
           <div class="hero-authority__matrix" aria-hidden="true">
-            <span class="hero-authority__cell hero-authority__cell--active">Domínio</span>
-            <span class="hero-authority__cell">Contratos</span>
+            <span class="hero-authority__cell hero-authority__cell--active">Contexto</span>
+            <span class="hero-authority__cell">Escopo</span>
             <span class="hero-authority__cell">Interface</span>
-            <span class="hero-authority__cell hero-authority__cell--active">Operação</span>
-            <span class="hero-authority__cell hero-authority__cell--active">Evolução</span>
-            <span class="hero-authority__cell">Escala</span>
+            <span class="hero-authority__cell hero-authority__cell--active">Sistema</span>
+            <span class="hero-authority__cell hero-authority__cell--active">Evolu&ccedil;&atilde;o</span>
+            <span class="hero-authority__cell">Suporte</span>
           </div>
 
           <div class="hero-authority__trace" aria-hidden="true">
@@ -60,12 +60,12 @@ export function Hero(): string {
 
           <dl class="hero-authority__proof">
             <div>
-              <dt>Entrega</dt>
-              <dd>Blueprint técnico antes da implementação</dd>
+              <dt>Primeiro passo</dt>
+              <dd>Entender o projeto antes de prometer solu&ccedil;&atilde;o</dd>
             </div>
             <div>
-              <dt>Qualidade</dt>
-              <dd>Componentes, CSS e TypeScript sob controle</dd>
+              <dt>Entrega</dt>
+              <dd>Sistema claro, organizado e pronto para continuar</dd>
             </div>
           </dl>
         </aside>

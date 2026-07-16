@@ -6,9 +6,9 @@ type NavigationItem = {
 };
 
 const navigationItems: NavigationItem[] = [
-  { label: "Diagnóstico", href: "#diagnostico" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Autoridade", href: "#autoridade" },
+  { label: "Servi&ccedil;os", href: "#servicos" },
+  { label: "Processo", href: "#caminho" },
+  { label: "Labs", href: "#labs" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -41,9 +41,9 @@ function ThemeToggle(): string {
 
 export function Header(): string {
   return `
-    <header class="site-header" aria-label="Cabeçalho principal">
+    <header class="site-header" aria-label="Cabecalho principal">
       <div class="site-header__inner shell">
-        <a class="brand" href="#inicio" aria-label="AR Dev Studio, voltar ao início">
+        <a class="brand" href="#inicio" aria-label="AR Dev Studio, voltar ao inicio">
           ${LogoCube()}
           <span class="brand__text">
             <span class="brand__name">AR Dev Studio</span>
@@ -51,13 +51,13 @@ export function Header(): string {
           </span>
         </a>
 
-        <nav class="site-nav" aria-label="Navegação principal">
+        <nav class="site-nav" aria-label="Navegacao principal">
           ${renderNavigation()}
         </nav>
 
         <div class="site-header__actions">
           ${ThemeToggle()}
-          <a class="header-cta" href="#contato">Projetar sistema</a>
+          <a class="header-cta" href="#contato">Falar sobre projeto</a>
         </div>
       </div>
     </header>

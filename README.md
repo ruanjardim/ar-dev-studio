@@ -499,3 +499,63 @@ Resultado validado:
 - [x] Assets publicos preservados.
 - [x] Documentacao da Sprint criada.
 - [x] Pronto para commit.
+
+## Sprint 9 — Client Presentation Simplification
+
+### Objetivo
+
+Simplificar a Home para funcionar melhor como apresentacao para clientes, mantendo a identidade de Software House e separando a complexidade dos futuros jogos em uma area propria de Labs.
+
+### Arquitetura da Sprint
+
+A Sprint 9 reduz a quantidade de secoes exibidas na Home principal. Os componentes tecnicos criados nas sprints anteriores continuam no projeto para reaproveitamento futuro, mas deixam de compor a frente inicial para diminuir densidade e melhorar leitura comercial.
+
+Nova secao:
+
+- `src/components/LabsPreview.ts`: apresenta Torre de Hanoi, xadrez online e cubo magico como experimentos futuros separados da apresentacao principal.
+
+Arquivos evoluidos:
+
+- `src/pages/Home.ts`: recompõe a Home com uma narrativa mais curta: Hero, Manifesto, Servicos, Processo, Perfil, Labs, FAQ e Contato.
+- `src/components/Header.ts`: atualiza a navegacao para Servicos, Processo, Labs e FAQ.
+- `src/components/Hero.ts`: deixa a primeira dobra mais direta para cliente, com CTA de conversa e explicacao menos tecnica.
+- `src/styles/layout.css`: adiciona a faixa `section--labs`.
+- `src/styles/components.css`: adiciona estilos dos cards de Labs.
+- `README.md`: documenta a Sprint 9.
+
+### Validacao no navegador
+
+URL local validada: `http://127.0.0.1:5174/`
+
+Resultado validado:
+
+- A Home renderiza na ordem: `inicio`, `manifesto`, `servicos`, `caminho`, `perfil`, `labs`, `faq`, `contato`.
+- A navegacao mostra `Servicos`, `Processo`, `Labs` e `FAQ`.
+- O CTA principal renderiza como `Conversar sobre projeto`.
+- A secao Labs renderiza tres cards: Torre de Hanoi, Xadrez online e Cubo magico.
+- As secoes tecnicas densas `autoridade` e `stack` nao aparecem mais na Home principal.
+- Sem overflow horizontal no navegador.
+- Sem erros de console da pagina.
+- Build de producao aprovado com Vite 8 e TypeScript estrito.
+
+### Criterios de aceite
+
+- A Home fica mais adequada para apresentacao comercial a clientes.
+- A mensagem principal continua posicionando a AR Dev Studio como Software House.
+- A complexidade dos jogos fica separada da apresentacao institucional.
+- A primeira dobra fica mais clara e menos tecnica.
+- A arquitetura permanece modular e preparada para paginas futuras.
+- Nenhum jogo foi implementado de forma provisoria.
+
+### Checklist
+
+- [x] Arquitetura da Sprint definida.
+- [x] Home recomposta para apresentacao de clientes.
+- [x] Header simplificado.
+- [x] Hero suavizado.
+- [x] Labs Preview criado.
+- [x] Estilos de Labs adicionados.
+- [x] Build de producao aprovado.
+- [x] Validacao no navegador realizada.
+- [x] Documentacao da Sprint criada.
+- [x] Pronto para commit.
