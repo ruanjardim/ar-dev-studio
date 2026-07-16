@@ -200,6 +200,8 @@ Pontos a conferir:
 - [x] Build de produção aprovado.
 - [x] Validação final no navegador.
 - [x] Pronto para commit.
+
+
 - [x] Commit e push no GitHub privado.
 
 ## Sprint 5 — Visual Authority & Conversion Polish
@@ -377,4 +379,123 @@ Resultado validado:
 - [x] CSS modular atualizado.
 - [x] Build de produção aprovado.
 - [x] Validação final no navegador.
+- [x] Pronto para commit.
+
+## Sprint 7 — Launch Readiness & Brand Assets
+
+### Objetivo
+
+Preparar a Home oficial para uma abertura mais consistente no navegador, com ativos publicos de marca, favicon, manifesto web, metadados de aplicacao e logo componentizado para evolucao futura.
+
+### Arquitetura da Sprint
+
+A Sprint 7 separa identidade de marca em duas camadas: componente reutilizavel dentro da aplicacao e assets publicos consumidos diretamente pelo navegador. A Home aprovada permanece visualmente estavel.
+
+Novos arquivos:
+
+- `src/components/LogoCube.ts`: componente oficial do Logo Cube, reutilizavel fora do Header.
+- `public/favicon.svg`: favicon SVG com a paleta oficial da AR Dev Studio.
+- `public/brand-mark.svg`: marca publica para metadados e futuras superficies institucionais.
+- `public/site.webmanifest`: manifesto web com nome, tema, escopo e icone da aplicacao.
+- `public/robots.txt`: permissao basica de indexacao.
+
+Arquivos evoluidos:
+
+- `src/components/Header.ts`: passa a importar o Logo Cube componentizado.
+- `src/scripts/metadata.ts`: adiciona a marca publica ao JSON-LD `Organization`.
+- `index.html`: adiciona favicon, manifesto, nome da aplicacao, suporte a tema claro/escuro e cores de navegador.
+
+### Validacao no navegador
+
+URL local validada: `http://127.0.0.1:5174/`
+
+Resultado validado:
+
+- Home respondeu com status `200`.
+- `favicon.svg` respondeu com status `200` e tipo `image/svg+xml`.
+- `brand-mark.svg` respondeu com status `200` e tipo `image/svg+xml`.
+- `site.webmanifest` respondeu com status `200` e tipo `application/manifest+json`.
+- O HTML da Home referencia `/favicon.svg`.
+- O HTML da Home referencia `/site.webmanifest`.
+- O HTML da Home possui `application-name` com `AR Dev Studio`.
+- Build de producao aprovado com Vite 8 e TypeScript estrito.
+
+### Criterios de aceite
+
+- O navegador passa a reconhecer a identidade da AR Dev Studio por favicon e manifesto.
+- O Logo Cube deixa de ficar acoplado ao Header e vira componente reutilizavel.
+- A paleta oficial continua preservada nos assets publicos.
+- Nenhum dominio publico foi inventado antes da definicao oficial.
+- A Home aprovada permanece sem alteracao estrutural de conteudo.
+- O projeto continua sem framework de UI e com CSS puro.
+
+### Checklist
+
+- [x] Arquitetura da Sprint definida.
+- [x] Logo Cube componentizado.
+- [x] Favicon SVG oficial criado.
+- [x] Brand mark publico criado.
+- [x] Manifesto web criado.
+- [x] Robots basico criado.
+- [x] Metadados do HTML atualizados.
+- [x] JSON-LD enriquecido com logo.
+- [x] Build de producao aprovado.
+- [x] Validacao local dos assets publicos.
+- [x] Pronto para commit.
+
+## Sprint 8 — Project Qualification & Conversion Polish
+
+### Objetivo
+
+Evoluir a Home com uma camada de qualificacao comercial antes do contato final, deixando claro quais tipos de projeto combinam com a AR Dev Studio e reforcando o posicionamento de Software House orientada por arquitetura.
+
+### Arquitetura da Sprint
+
+A Sprint 8 adiciona uma secao independente entre o caminho de trabalho e o CTA final. A nova camada nao coleta dados e nao depende de backend; sua funcao e orientar decisao, reduzir desalinhamento e preparar a conversa de diagnostico.
+
+Novo componente:
+
+- `src/components/ProjectQualification.ts`: apresenta perfis de projeto adequados para diagnostico tecnico.
+
+Arquivos evoluidos:
+
+- `src/pages/Home.ts`: adiciona a nova secao antes do contato final.
+- `src/styles/layout.css`: cria a faixa visual `section--qualification`.
+- `src/styles/components.css`: adiciona cards, chips de sinais e nota de orientacao para diagnostico.
+- `README.md`: documenta a Sprint 8.
+
+### Validacao no navegador
+
+URL local validada: `http://127.0.0.1:5174/`
+
+Resultado validado:
+
+- A secao `Perfil de projeto` renderiza no DOM carregado.
+- O titulo `A melhor conversa comeca quando existe responsabilidade de sistema.` aparece corretamente no navegador.
+- Tres cards de qualificacao renderizados.
+- A nota `Antes do orcamento` renderiza antes do CTA final.
+- Sem overflow horizontal no navegador.
+- Sem erros de console da pagina.
+- Favicon e manifesto da Sprint 7 continuam respondendo com status `200`.
+- Build de producao aprovado com Vite 8 e TypeScript estrito.
+
+### Criterios de aceite
+
+- A Home explica melhor quando a AR Dev Studio deve ser acionada.
+- A nova secao reforca software house, continuidade e responsabilidade tecnica.
+- O contato final passa a receber um visitante mais orientado.
+- Nenhum formulario ou backend provisorio foi criado.
+- A arquitetura permanece modular, com CSS puro e sem framework de UI.
+- A Home aprovada visualmente continua preservada.
+
+### Checklist
+
+- [x] Arquitetura da Sprint definida.
+- [x] Componente de qualificacao criado.
+- [x] Home recomposta com a nova secao.
+- [x] Estilos responsivos adicionados.
+- [x] Build de producao aprovado.
+- [x] Validacao no navegador realizada.
+- [x] Assets publicos preservados.
+- [x] Documentacao da Sprint criada.
 - [x] Pronto para commit.

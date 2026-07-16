@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" role="img" aria-labelledby="title">
+  <title id="title">Logo Cube AR Dev Studio</title>
+  <path fill="#FFFFFF" d="M18 3 31 10.5 18 18 5 10.5 18 3Z" />
+  <path fill="#A4BAD2" d="M5 10.5 18 18v15L5 25.5v-15Z" />
+  <path fill="#43627F" d="M31 10.5v15L18 33V18l13-7.5Z" />
+  <path fill="none" stroke="#0D2A4A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" d="M18 3 31 10.5v15L18 33 5 25.5v-15L18 3Z" />
+  <path fill="none" stroke="#0D2A4A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55" d="M18 18v15M5 10.5 18 18l13-7.5" />
+</svg>

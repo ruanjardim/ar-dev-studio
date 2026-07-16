@@ -70,6 +70,11 @@
   background: var(--color-canvas);
 }
 
+.section--qualification {
+  background: linear-gradient(180deg, var(--color-canvas), var(--color-surface));
+  border-top: 1px solid var(--color-line);
+}
+
 .section--final-cta {
   padding-block: var(--space-12);
   background: var(--color-surface);

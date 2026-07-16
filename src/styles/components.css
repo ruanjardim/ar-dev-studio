@@ -703,6 +703,87 @@
   border-radius: var(--radius-sm);
 }
 
+.qualification {
+  gap: var(--space-6);
+}
+
+.qualification-board {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.qualification-card {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+}
+
+.qualification-card__code {
+  width: max-content;
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-surface);
+  font-size: 0.74rem;
+  font-weight: 850;
+  line-height: 1;
+  background: var(--color-ink);
+  border-radius: var(--radius-xs);
+}
+
+.qualification-card h3 {
+  color: var(--color-ink);
+  font-size: 1.08rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.qualification-card p,
+.qualification-note p {
+  color: var(--color-muted);
+  font-size: 0.96rem;
+  line-height: 1.68;
+}
+
+.qualification-card__signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.qualification-card__signals li {
+  padding: 0.42rem 0.6rem;
+  color: var(--color-text);
+  font-size: 0.78rem;
+  font-weight: 720;
+  line-height: 1;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+
+.qualification-note {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background:
+    linear-gradient(135deg, rgb(var(--color-brand-ice-rgb) / 28%), transparent 52%),
+    var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+}
+
+.qualification-note span {
+  color: var(--color-accent-strong);
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .delivery {
   display: grid;
   gap: var(--space-8);
@@ -847,5 +928,14 @@
   .conversion-step {
     grid-template-columns: 1fr;
     align-content: start;
+  }
+
+  .qualification-board {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .qualification-note {
+    grid-template-columns: 14rem 1fr;
+    align-items: center;
   }
 }

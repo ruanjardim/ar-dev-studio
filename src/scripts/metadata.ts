@@ -15,6 +15,7 @@ export function applyStructuredData(): void {
       "Software House orientada por arquitetura, engenharia e evolucao continua de sistemas.",
     email: "contato@ardevstudio.com",
     url: window.location.origin,
+    logo: new URL("/brand-mark.svg", window.location.origin).toString(),
     slogan: "Projetamos sistemas que evoluem.",
     knowsAbout: [
       "Arquitetura de software",

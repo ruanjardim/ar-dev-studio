@@ -9,6 +9,7 @@ import { Hero } from "../components/Hero";
 import { Manifesto } from "../components/Manifesto";
 import { MaturitySignals } from "../components/MaturitySignals";
 import { ProcessTimeline } from "../components/ProcessTimeline";
+import { ProjectQualification } from "../components/ProjectQualification";
 import { Services } from "../components/Services";
 import { StackStandards } from "../components/StackStandards";
 import { TechnicalDifferentials } from "../components/TechnicalDifferentials";
@@ -28,6 +29,7 @@ export function Home(): string {
     ${TechnicalDifferentials()}
     ${Faq()}
     ${ConversionPath()}
+    ${ProjectQualification()}
     ${FinalCta()}
   `;
 }
