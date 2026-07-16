@@ -2,8 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgb(247 249 252 / 88%);
-  border-bottom: 1px solid rgb(217 226 238 / 78%);
+  background: rgb(246 249 252 / 90%);
+  border-bottom: 1px solid rgb(var(--color-brand-ice-rgb) / 42%);
   backdrop-filter: blur(18px);
 }
 
@@ -24,30 +24,30 @@
 }
 
 .brand-mark {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
   flex: 0 0 auto;
 }
 
 .brand-mark__edge,
 .brand-mark__line {
   fill: none;
-  stroke: var(--color-ink);
+  stroke: var(--color-logo-stroke);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 2;
+  stroke-width: 1.55;
 }
 
 .brand-mark__face--left {
-  fill: var(--color-accent-soft);
+  fill: var(--color-logo-left);
 }
 
 .brand-mark__face--right {
-  fill: rgb(52 88 212 / 16%);
+  fill: var(--color-logo-right);
 }
 
 .brand-mark__face--top {
-  fill: var(--color-surface);
+  fill: var(--color-logo-top);
 }
 
 .brand__text {
@@ -158,7 +158,7 @@
 
 .button--footer {
   color: var(--color-ink);
-  background: var(--color-signal);
+  background: var(--color-surface);
 }
 
 .eyebrow {
@@ -261,7 +261,7 @@
   font-weight: 850;
   line-height: 1;
   background: var(--color-accent-soft);
-  border: 1px solid rgb(0 122 120 / 16%);
+  border: 1px solid rgb(var(--color-brand-steel-rgb) / 18%);
   border-radius: var(--radius-xs);
 }
 
@@ -490,7 +490,7 @@
   align-items: center;
   padding: var(--space-8);
   background:
-    linear-gradient(135deg, rgb(0 122 120 / 10%), transparent 42%),
+    linear-gradient(135deg, rgb(var(--color-brand-ice-rgb) / 24%), transparent 42%),
     var(--color-surface-raised);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);

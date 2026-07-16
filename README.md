@@ -275,3 +275,34 @@ Resultado validado:
 - [x] Build de produção aprovado.
 - [x] Validação final no navegador.
 - [x] Commit e push no GitHub privado.
+
+## Refinamento de Design System — Paleta e Logo Cube
+
+### Objetivo
+
+Alinhar a identidade visual da Home com a paleta azul definida para a AR Dev Studio, preservando o branco como base do tema claro e preparando a fundação para um futuro controle de tema claro/escuro.
+
+### Paleta oficial
+
+- Navy: `#0D2A4A`.
+- Steel: `#43627F`.
+- Ice: `#A4BAD2`.
+- White: `#FFFFFF`.
+
+### Arquitetura
+
+- `src/styles/tokens.css`: concentra a paleta oficial, tokens RGB, cores de interface, cores do Logo Cube e sombras.
+- `src/components/Header.ts`: define a geometria SVG do Logo Cube.
+- `src/styles/components.css`: aplica a paleta no Header, botões, cards e CTA final.
+- `src/styles/hero.css`: remove tons antigos do Hero, blueprint e painel técnico.
+- `src/styles/layout.css`: alinha fundos de seção e grid global à paleta azul.
+
+### Validação
+
+- Tema claro mantém fundo branco/frio como padrão de abertura.
+- Logo Cube renderiza com topo branco, lateral clara, lateral azul e contorno escuro.
+- CTA principal usa `#0D2A4A`.
+- Tokens `#0D2A4A`, `#43627F` e `#A4BAD2` estão ativos no navegador.
+- Sem overflow horizontal.
+- Sem erros de console da página.
+- Build de produção aprovado.
