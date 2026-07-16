@@ -200,6 +200,7 @@ Pontos a conferir:
 - [x] Build de produção aprovado.
 - [x] Validação final no navegador.
 - [x] Pronto para commit.
+- [x] Commit e push no GitHub privado.
 
 ## Sprint 5 — Visual Authority & Conversion Polish
 
@@ -306,3 +307,74 @@ Alinhar a identidade visual da Home com a paleta azul definida para a AR Dev Stu
 - Sem overflow horizontal.
 - Sem erros de console da página.
 - Build de produção aprovado.
+
+## Sprint 6 — Trust, SEO & Theme Control
+
+### Objetivo
+
+Amadurecer a frente oficial da AR Dev Studio com controle de tema claro/escuro, contato institucional mais estruturado, metadados semânticos e refinamentos de acessibilidade.
+
+### Arquitetura da Sprint
+
+A Sprint 6 preserva a Home como composição de seções e adiciona duas responsabilidades transversais em `src/scripts`: preferência visual do usuário e dados estruturados. O tema claro continua sendo o padrão de abertura; o tema escuro só é aplicado por ação do usuário e fica salvo no navegador.
+
+Novos arquivos:
+
+- `src/scripts/theme.ts`: controla tema claro/escuro, persistência local e estado acessível do botão.
+- `src/scripts/metadata.ts`: injeta dados estruturados `Organization` sem depender de domínio fixo.
+
+Arquivos evoluídos:
+
+- `src/main.ts`: inicializa dados estruturados e controle de tema após renderizar a aplicação.
+- `src/components/Header.ts`: adiciona botão de tema acessível ao Header.
+- `src/components/FinalCta.ts`: transforma o CTA final em bloco de contato comercial com e-mail, contexto e próximo passo.
+- `src/styles/tokens.css`: adiciona tokens do tema escuro e superfícies compartilhadas.
+- `src/styles/base.css`: adiciona transição suave de tema.
+- `src/styles/components.css`: estilos do botão de tema, contato estruturado e ajustes de superfícies.
+- `src/styles/layout.css`: remove fundos fixos claros para suportar tema escuro.
+- `src/styles/hero.css`: remove superfícies fixas claras no Hero e no painel técnico.
+
+### Validação no navegador
+
+Pontos a conferir:
+
+- A página deve abrir em tema claro por padrão.
+- O botão de tema deve alternar entre claro e escuro.
+- O estado do botão deve atualizar `aria-pressed` e `aria-label`.
+- A preferência de tema deve persistir no navegador.
+- O contato final deve mostrar e-mail, primeiro passo e foco do diagnóstico.
+- O JSON-LD `Organization` deve existir no `head`.
+- Mobile e desktop devem permanecer sem overflow horizontal.
+
+Resultado validado:
+
+- Tema claro validado em desktop.
+- Tema escuro validado em desktop.
+- Preferência de tema persistiu após recarregar.
+- Mobile validado em `390x844`.
+- Contato estruturado renderizado com e-mail e assunto no link.
+- JSON-LD `Organization` renderizado no `head`.
+- Sem overflow horizontal.
+- Sem erros de console da página.
+
+### Critérios de aceite
+
+- Tema claro/escuro funciona sem framework de UI.
+- Tema claro continua sendo a experiência inicial.
+- O contato final comunica um próximo passo mais confiável.
+- Dados estruturados reforçam SEO técnico sem domínio inventado.
+- A arquitetura continua modular, simples e pronta para evoluir.
+- O build de produção continua aprovado com Vite 8 e TypeScript estrito.
+
+### Checklist
+
+- [x] Arquitetura da Sprint definida.
+- [x] Script de tema criado.
+- [x] Botão de tema adicionado ao Header.
+- [x] Tokens do tema escuro criados.
+- [x] Contato final estruturado.
+- [x] Dados estruturados adicionados.
+- [x] CSS modular atualizado.
+- [x] Build de produção aprovado.
+- [x] Validação final no navegador.
+- [x] Pronto para commit.

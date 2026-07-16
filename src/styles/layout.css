@@ -23,7 +23,7 @@
 }
 
 .section--manifesto {
-  background: linear-gradient(180deg, transparent, rgb(255 255 255 / 72%));
+  background: linear-gradient(180deg, transparent, var(--color-surface));
 }
 
 .section--delivery {
@@ -42,7 +42,7 @@
 }
 
 .section--stack {
-  background: linear-gradient(180deg, rgb(246 249 252 / 94%), rgb(255 255 255 / 86%));
+  background: linear-gradient(180deg, var(--color-canvas), var(--color-surface));
 }
 
 .section--authority {
@@ -51,7 +51,7 @@
 }
 
 .section--process {
-  background: linear-gradient(180deg, rgb(255 255 255 / 88%), rgb(229 238 247 / 72%));
+  background: linear-gradient(180deg, var(--color-surface), var(--color-surface-muted));
 }
 
 .section--maturity {

@@ -7,6 +7,7 @@
   --color-brand-navy-rgb: 13 42 74;
   --color-brand-steel-rgb: 67 98 127;
   --color-brand-ice-rgb: 164 186 210;
+  --color-canvas-rgb: 246 249 252;
 
   --color-logo-stroke: var(--color-brand-navy);
   --color-logo-top: #ffffff;
@@ -28,6 +29,9 @@
   --color-blueprint: var(--color-brand-steel);
   --color-signal: var(--color-brand-ice);
   --color-warning: var(--color-brand-steel);
+  --color-surface-translucent: rgb(255 255 255 / 78%);
+  --color-inverse-muted: rgb(255 255 255 / 68%);
+  --color-inverse-line: rgb(255 255 255 / 14%);
 
   --font-sans:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -59,4 +63,36 @@
   --duration-base: 240ms;
   --duration-slow: 520ms;
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-canvas: #071827;
+  --color-canvas-rgb: 7 24 39;
+  --color-surface: #0d2033;
+  --color-surface-raised: #12304a;
+  --color-surface-muted: #163957;
+  --color-ink: #f5f9fd;
+  --color-text: #d9e5ef;
+  --color-muted: #a8bbcc;
+  --color-line: #284862;
+  --color-line-strong: #43627f;
+  --color-accent: var(--color-brand-ice);
+  --color-accent-strong: #ffffff;
+  --color-accent-soft: #173a58;
+  --color-blueprint: var(--color-brand-ice);
+  --color-signal: #ffffff;
+  --color-warning: var(--color-brand-ice);
+  --color-surface-translucent: rgb(18 48 74 / 78%);
+  --color-inverse-muted: rgb(217 229 239 / 72%);
+  --color-inverse-line: rgb(164 186 210 / 18%);
+
+  --color-logo-stroke: #ffffff;
+  --color-logo-top: #ffffff;
+  --color-logo-left: var(--color-brand-ice);
+  --color-logo-right: var(--color-brand-steel);
+
+  --shadow-subtle: 0 1rem 3rem rgb(0 0 0 / 22%);
+  --shadow-technical: 0 1.5rem 4rem rgb(0 0 0 / 28%);
 }
