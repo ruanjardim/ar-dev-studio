@@ -1,0 +1,21 @@
+{
+  "name": "ar-dev-studio",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Site institucional da AR Dev Studio, uma Software House orientada por arquitetura e evolução de sistemas.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^8.0.0"
+  }
+}

@@ -1,0 +1,77 @@
+@keyframes enter-softly {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blueprint-pulse {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.is-ready .hero__content,
+.is-ready .architecture-card,
+.is-ready .principle-card,
+.is-ready .service-card,
+.is-ready .process-step,
+.is-ready .delivery__content,
+.is-ready .capability-list,
+.is-ready .technical-card,
+.is-ready .final-cta {
+  animation: enter-softly var(--duration-slow) var(--ease-standard) both;
+}
+
+.is-ready .architecture-card {
+  animation-delay: 90ms;
+}
+
+.is-ready .principle-card:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.is-ready .principle-card:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.is-ready .service-card:nth-child(2),
+.is-ready .process-step:nth-child(2),
+.is-ready .technical-card:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.is-ready .service-card:nth-child(3),
+.is-ready .process-step:nth-child(3),
+.is-ready .technical-card:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.is-ready .architecture-line {
+  animation: blueprint-pulse 2.8s var(--ease-standard) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-ready .hero__content,
+  .is-ready .architecture-card,
+  .is-ready .principle-card,
+  .is-ready .service-card,
+  .is-ready .process-step,
+  .is-ready .delivery__content,
+  .is-ready .capability-list,
+  .is-ready .technical-card,
+  .is-ready .final-cta,
+  .is-ready .architecture-line {
+    animation: none;
+  }
+}
