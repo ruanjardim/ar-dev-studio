@@ -36,6 +36,39 @@ export function Hero(): string {
             </div>
           </dl>
         </div>
+
+        <aside class="hero-authority" aria-label="Painel técnico da AR Dev Studio">
+          <div class="hero-authority__header">
+            <span>Architecture Readiness</span>
+            <strong>Enterprise Web</strong>
+          </div>
+
+          <div class="hero-authority__matrix" aria-hidden="true">
+            <span class="hero-authority__cell hero-authority__cell--active">Domínio</span>
+            <span class="hero-authority__cell">Contratos</span>
+            <span class="hero-authority__cell">Interface</span>
+            <span class="hero-authority__cell hero-authority__cell--active">Operação</span>
+            <span class="hero-authority__cell hero-authority__cell--active">Evolução</span>
+            <span class="hero-authority__cell">Escala</span>
+          </div>
+
+          <div class="hero-authority__trace" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <dl class="hero-authority__proof">
+            <div>
+              <dt>Entrega</dt>
+              <dd>Blueprint técnico antes da implementação</dd>
+            </div>
+            <div>
+              <dt>Qualidade</dt>
+              <dd>Componentes, CSS e TypeScript sob controle</dd>
+            </div>
+          </dl>
+        </aside>
       </div>
     </section>
   `;

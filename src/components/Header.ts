@@ -6,7 +6,7 @@ type NavigationItem = {
 const navigationItems: NavigationItem[] = [
   { label: "Diagnóstico", href: "#diagnostico" },
   { label: "Serviços", href: "#servicos" },
-  { label: "Processo", href: "#processo" },
+  { label: "Autoridade", href: "#autoridade" },
   { label: "FAQ", href: "#faq" },
 ];
 

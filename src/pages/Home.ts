@@ -1,4 +1,6 @@
 import { ArchitecturePrinciples } from "../components/ArchitecturePrinciples";
+import { AuthorityProof } from "../components/AuthorityProof";
+import { ConversionPath } from "../components/ConversionPath";
 import { Delivery } from "../components/Delivery";
 import { DiagnosticFit } from "../components/DiagnosticFit";
 import { Faq } from "../components/Faq";
@@ -19,11 +21,13 @@ export function Home(): string {
     ${ArchitecturePrinciples()}
     ${Services()}
     ${StackStandards()}
+    ${AuthorityProof()}
     ${ProcessTimeline()}
     ${MaturitySignals()}
     ${Delivery()}
     ${TechnicalDifferentials()}
     ${Faq()}
+    ${ConversionPath()}
     ${FinalCta()}
   `;
 }

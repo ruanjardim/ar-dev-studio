@@ -200,3 +200,78 @@ Pontos a conferir:
 - [x] Build de produção aprovado.
 - [x] Validação final no navegador.
 - [x] Pronto para commit.
+
+## Sprint 5 — Visual Authority & Conversion Polish
+
+### Objetivo
+
+Elevar a Home para uma presença institucional mais forte, com primeira dobra mais autoral, prova técnica sem cases inventados, caminho de conversão claro e metadados sociais básicos.
+
+### Arquitetura da Sprint
+
+A Sprint 5 preserva a Home como composição de seções e adiciona duas camadas novas: autoridade técnica e conversão. O Hero passa a carregar um painel visual técnico no desktop para reforçar engenharia e arquitetura sem depender de imagens externas.
+
+Novos componentes:
+
+- `src/components/AuthorityProof.ts`: prova de autoridade baseada em artefatos técnicos, documentação e qualidade operacional.
+- `src/components/ConversionPath.ts`: caminho do primeiro contato até a primeira entrega.
+
+Arquivos evoluídos:
+
+- `src/components/Hero.ts`: painel técnico visual de prontidão arquitetural.
+- `src/components/Header.ts`: navegação ajustada para Diagnóstico, Serviços, Autoridade e FAQ.
+- `src/components/FinalCta.ts`: copy final mais direta para diagnóstico técnico.
+- `src/pages/Home.ts`: inclusão das novas seções.
+- `src/styles/hero.css`: Hero em duas colunas no desktop e painel técnico responsivo.
+- `src/styles/components.css`: cards de autoridade e caminho de conversão.
+- `src/styles/layout.css`: novas faixas de seção.
+- `src/styles/animations.css`: animações discretas para os novos blocos.
+- `index.html`: metadados Open Graph e Twitter básicos.
+
+### Validação no navegador
+
+URL local validada: `http://127.0.0.1:5174/`
+
+Pontos a conferir:
+
+- O Hero deve manter a mensagem `Projetamos sistemas que evoluem.`
+- No desktop, o Hero deve exibir o painel `Architecture Readiness`.
+- A navegação deve apontar para `Diagnóstico`, `Serviços`, `Autoridade` e `FAQ`.
+- A Home deve conter as âncoras `autoridade` e `caminho`.
+- A seção de autoridade não deve mencionar clientes, números ou cases fictícios.
+- O CTA final deve chamar para `Solicitar diagnóstico técnico`.
+- Mobile e desktop devem permanecer sem overflow horizontal.
+
+Resultado validado:
+
+- Mobile validado em `390x844`.
+- Desktop validado em `1440x900`.
+- Painel `Architecture Readiness` oculto no mobile e visível no desktop.
+- Quatro cards de autoridade técnica renderizados.
+- Quatro etapas do caminho de conversão renderizadas.
+- CTA final direciona para contato direto por e-mail.
+- Open Graph e Twitter Card básicos presentes.
+- Sem overflow horizontal.
+- Sem erros de console da página.
+
+### Critérios de aceite
+
+- A Home ganha mais autoridade visual sem perder minimalismo.
+- A prova técnica é baseada em artefatos reais de entrega, não em claims artificiais.
+- O caminho de conversão deixa claro o próximo passo.
+- Os metadados sociais básicos estão presentes.
+- O build de produção continua aprovado com Vite 8 e TypeScript estrito.
+
+### Checklist
+
+- [x] Arquitetura da Sprint definida.
+- [x] Hero refinado.
+- [x] Painel técnico visual criado.
+- [x] Prova de autoridade criada.
+- [x] Caminho de conversão criado.
+- [x] CTA final refinado.
+- [x] Metadados sociais básicos adicionados.
+- [x] CSS modular atualizado.
+- [x] Build de produção aprovado.
+- [x] Validação final no navegador.
+- [x] Commit e push no GitHub privado.
