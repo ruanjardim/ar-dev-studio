@@ -1,4 +1,6 @@
-import { App } from "./app";
+import "./styles/hanoi.css";
+
+import { setupApp } from "./app";
 import { applyStructuredData } from "./scripts/metadata";
 import { setupThemeToggle } from "./scripts/theme";
 
@@ -8,7 +10,9 @@ if (!root) {
   throw new Error("Elemento raiz #app não encontrado.");
 }
 
-root.innerHTML = App();
+setupApp(root);
+
 applyStructuredData();
 setupThemeToggle();
+
 document.documentElement.classList.add("is-ready");

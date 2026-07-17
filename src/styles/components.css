@@ -2,8 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgb(var(--color-canvas-rgb) / 90%);
-  border-bottom: 1px solid rgb(var(--color-brand-ice-rgb) / 42%);
+  background: rgb(var(--color-brand-mist-rgb) / 92%);
+  border-bottom: 1px solid rgb(var(--color-brand-steel-rgb) / 28%);
   backdrop-filter: blur(18px);
 }
 
@@ -872,7 +872,7 @@
 
 .site-footer {
   color: var(--color-surface);
-  background: var(--color-ink);
+  background: var(--color-brand-mist);
 }
 
 .site-footer__inner {

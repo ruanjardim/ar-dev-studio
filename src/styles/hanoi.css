@@ -1,0 +1,831 @@
+/* ==========================================================
+   AR Logic Lab — Torre de Hanói
+   ========================================================== */
+
+.hanoi-game {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ==========================================================
+   Barra de controles
+   ========================================================== */
+
+.hanoi-game__toolbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  gap: 1.25rem;
+
+  padding: 1rem 1.25rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+
+  background: var(--surface-1);
+  box-shadow: var(--shadow-md);
+}
+
+.hanoi-game__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.hanoi-game__field label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.hanoi-game__field select {
+  min-width: 90px;
+  padding: 0.55rem 0.8rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  color: inherit;
+  background: var(--surface-0);
+}
+
+.hanoi-game__field select:focus-visible {
+  outline: 3px solid rgba(47, 109, 246, 0.2);
+  outline-offset: 2px;
+}
+
+.hanoi-game__stats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1.25rem, 4vw, 3rem);
+}
+
+.hanoi-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hanoi-stat__label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.hanoi-stat__value {
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.hanoi-game__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+/* ==========================================================
+   Painel principal
+   ========================================================== */
+
+.hanoi-game__panel {
+  padding: 1.25rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+
+  background: var(--surface-1);
+  box-shadow: var(--shadow-lg);
+}
+
+.hanoi-game__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+
+  margin-bottom: 1rem;
+}
+
+.hanoi-game__heading h2,
+.hanoi-game__heading h3 {
+  margin: 0;
+}
+
+.hanoi-game__status {
+  max-width: 360px;
+  margin: 0;
+
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: right;
+  color: var(--text-muted);
+}
+
+.hanoi-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* ==========================================================
+   Torres
+   ========================================================== */
+
+.hanoi-tower {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  min-width: 0;
+  padding: 0.75rem;
+
+  appearance: none;
+
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+
+  color: inherit;
+  background: var(--surface-0);
+
+  cursor: default;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.hanoi-tower:hover {
+  border-color: rgba(47, 109, 246, 0.48);
+  box-shadow: var(--shadow-md);
+}
+
+.hanoi-tower:focus-visible {
+  outline: 3px solid rgba(47, 109, 246, 0.24);
+  outline-offset: 3px;
+}
+
+.hanoi-tower.is-drop-target {
+  border-color: #2f6df6;
+
+  background:
+    linear-gradient(
+      rgba(47, 109, 246, 0.06),
+      rgba(47, 109, 246, 0.06)
+    ),
+    var(--surface-0);
+
+  box-shadow:
+    0 0 0 3px rgba(47, 109, 246, 0.14),
+    var(--shadow-md);
+}
+
+.hanoi-tower.is-drop-invalid {
+  border-color: #d95c5c;
+
+  background:
+    linear-gradient(
+      rgba(217, 92, 92, 0.06),
+      rgba(217, 92, 92, 0.06)
+    ),
+    var(--surface-0);
+
+  box-shadow:
+    0 0 0 3px rgba(217, 92, 92, 0.12),
+    var(--shadow-md);
+}
+
+.hanoi-tower__name {
+  position: relative;
+  z-index: 4;
+
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.hanoi-tower__play-area {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  height: 210px;
+  min-width: 0;
+}
+
+/* ==========================================================
+   Haste e base fixas
+   ========================================================== */
+
+.hanoi-tower__rod {
+  position: absolute;
+  z-index: 1;
+
+  left: 50%;
+  bottom: 12px;
+
+  width: 6px;
+  height: 150px;
+
+  border-radius: 999px 999px 2px 2px;
+
+  background: linear-gradient(
+    to right,
+    #061426 0%,
+    #15395f 48%,
+    #061426 100%
+  );
+
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.24),
+    inset 1px 0 rgba(255, 255, 255, 0.08);
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}
+
+.hanoi-tower__base {
+  position: absolute;
+  z-index: 1;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 88%;
+  max-width: 245px;
+  height: 9px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    to bottom,
+    #183d66,
+    #061426
+  );
+
+  box-shadow:
+    0 4px 9px rgba(3, 17, 34, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}
+
+/* ==========================================================
+   Pilha de discos
+   ========================================================== */
+
+.hanoi-tower__disks {
+  position: absolute;
+  z-index: 2;
+
+  left: 50%;
+  bottom: 12px;
+
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 3px;
+
+  width: 84%;
+  max-width: 225px;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}
+
+.hanoi-disk {
+  position: relative;
+
+  display: block;
+  flex: 0 0 auto;
+
+  height: 17px;
+  min-width: 42px;
+  max-width: 100%;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+
+  box-shadow:
+    0 3px 7px rgba(7, 21, 45, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  transition:
+    opacity 0.15s ease,
+    filter 0.15s ease,
+    transform 0.15s ease;
+
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.hanoi-disk::after {
+  content: "";
+
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  left: 7px;
+
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  pointer-events: none;
+}
+
+.hanoi-disk.is-draggable {
+  cursor: grab;
+}
+
+.hanoi-disk.is-draggable:hover {
+  filter: brightness(1.06);
+}
+
+.hanoi-disk.is-draggable:active {
+  cursor: grabbing;
+}
+
+.hanoi-disk.is-drag-source {
+  opacity: 0.18;
+}
+
+.hanoi-disk--dragging {
+  position: fixed;
+  z-index: 9999;
+
+  margin: 0;
+
+  cursor: grabbing;
+
+  opacity: 0.96;
+
+  pointer-events: none;
+  user-select: none;
+  touch-action: none;
+
+  box-shadow:
+    0 12px 24px rgba(5, 18, 39, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+
+  transform: scale(1.03);
+
+  transition: none;
+}
+
+/* ==========================================================
+   Cores dos discos
+   ========================================================== */
+
+.hanoi-disk[data-disk-size="1"] {
+  background: linear-gradient(
+    135deg,
+    #8fd3ff,
+    #4ba3f2
+  );
+}
+
+.hanoi-disk[data-disk-size="2"] {
+  background: linear-gradient(
+    135deg,
+    #59e0d0,
+    #16a7a0
+  );
+}
+
+.hanoi-disk[data-disk-size="3"] {
+  background: linear-gradient(
+    135deg,
+    #6f93ff,
+    #3159db
+  );
+}
+
+.hanoi-disk[data-disk-size="4"] {
+  background: linear-gradient(
+    135deg,
+    #a987ff,
+    #6b46d9
+  );
+}
+
+.hanoi-disk[data-disk-size="5"] {
+  background: linear-gradient(
+    135deg,
+    #ec8ad8,
+    #be4fa7
+  );
+}
+
+.hanoi-disk[data-disk-size="6"] {
+  background: linear-gradient(
+    135deg,
+    #ff9c88,
+    #df6256
+  );
+}
+
+.hanoi-disk[data-disk-size="7"] {
+  background: linear-gradient(
+    135deg,
+    #ffc467,
+    #d98928
+  );
+}
+
+.hanoi-disk[data-disk-size="8"] {
+  background: linear-gradient(
+    135deg,
+    #b6d66e,
+    #6fa439
+  );
+}
+
+/* ==========================================================
+   Aviso de demonstração
+   ========================================================== */
+
+#hanoi-demonstration {
+  padding: 0.85rem 1rem;
+
+  border: 1px solid rgba(47, 109, 246, 0.28);
+  border-radius: 14px;
+
+  background: rgba(47, 109, 246, 0.07);
+}
+
+#hanoi-demonstration[hidden] {
+  display: none;
+}
+
+#hanoi-demonstration-title {
+  margin: 0 0 0.25rem;
+
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+#hanoi-demonstration-description {
+  margin: 0;
+
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ==========================================================
+   Modal de conclusão
+   ========================================================== */
+
+body.hanoi-modal-open {
+  overflow: hidden;
+}
+
+#hanoi-completion-modal {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 1rem;
+}
+
+#hanoi-completion-modal[hidden] {
+  display: none;
+}
+
+/*
+  Fundo escurecido. O elemento também fecha a caixa quando
+  recebe o clique.
+*/
+
+#hanoi-completion-modal
+  > [data-hanoi-close-modal] {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+
+  border: 0;
+
+  background: rgba(4, 13, 28, 0.58);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  cursor: default;
+}
+
+/*
+  A estrutura interna do modal vira o cartão principal,
+  independentemente do nome da classe utilizada no HTML.
+*/
+
+#hanoi-completion-modal
+  > :not([data-hanoi-close-modal]) {
+  position: relative;
+  z-index: 1;
+
+  width: min(100%, 540px);
+  max-height: min(90vh, 720px);
+  overflow-y: auto;
+
+  padding: clamp(1.25rem, 3vw, 2rem);
+
+  border: 1px solid rgba(47, 109, 246, 0.2);
+  border-radius: 22px;
+
+  background: var(--surface-1);
+  box-shadow:
+    0 30px 80px rgba(3, 15, 34, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  animation: hanoi-modal-enter 0.24s ease-out;
+}
+
+/*
+  Caso o HTML possua um wrapper adicional dentro do modal,
+  ele também recebe a largura adequada.
+*/
+
+#hanoi-completion-modal
+  > :not([data-hanoi-close-modal])
+  > * {
+  max-width: 100%;
+}
+
+#hanoi-completion-modal h2 {
+  margin: 0.25rem 0 0.35rem;
+
+  font-size: clamp(1.55rem, 4vw, 2rem);
+  line-height: 1.1;
+}
+
+#hanoi-completion-modal p {
+  line-height: 1.5;
+}
+
+#hanoi-completion-modal button {
+  min-height: 42px;
+}
+
+/* Informações numéricas do resultado */
+
+#hanoi-result-time,
+#hanoi-result-moves,
+#hanoi-result-minimum,
+#hanoi-result-efficiency {
+  font-weight: 800;
+  color: var(--text-strong, var(--text-color));
+}
+
+/* Medalha e mensagem de desempenho */
+
+#hanoi-achievement-icon {
+  display: inline-grid;
+  place-items: center;
+
+  width: 44px;
+  height: 44px;
+  margin-top: 0.5rem;
+
+  border-radius: 14px;
+
+  font-size: 1.4rem;
+
+  background: rgba(47, 109, 246, 0.09);
+}
+
+#hanoi-achievement-title {
+  margin: 0.7rem 0 0.2rem;
+
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+#hanoi-achievement-description {
+  margin: 0;
+
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/*
+  Organiza os três botões principais mesmo que eles estejam
+  dentro de um wrapper sem classe específica.
+*/
+
+#hanoi-replay-button,
+#hanoi-next-level-button,
+#hanoi-optimal-solution-button {
+  margin-top: 1rem;
+}
+
+#hanoi-next-level-button {
+  box-shadow:
+    0 8px 24px rgba(47, 109, 246, 0.2);
+}
+
+#hanoi-close-modal-button {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+
+  display: inline-grid;
+  place-items: center;
+
+  width: 36px;
+  min-height: 36px;
+  padding: 0;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  color: inherit;
+  background: var(--surface-0);
+
+  cursor: pointer;
+}
+
+#hanoi-close-modal-button:hover {
+  border-color: rgba(47, 109, 246, 0.45);
+  background: rgba(47, 109, 246, 0.07);
+}
+
+#hanoi-close-modal-button:focus-visible {
+  outline: 3px solid rgba(47, 109, 246, 0.2);
+  outline-offset: 2px;
+}
+
+@keyframes hanoi-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================================
+   Responsividade
+   ========================================================== */
+
+@media (max-width: 960px) {
+  .hanoi-game__toolbar {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .hanoi-game__stats {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .hanoi-game__actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .hanoi-game__heading {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .hanoi-game__status {
+    max-width: none;
+    text-align: left;
+  }
+
+  .hanoi-board {
+    gap: 0.65rem;
+  }
+
+  .hanoi-tower {
+    padding: 0.5rem;
+  }
+
+  .hanoi-tower__play-area {
+    height: 190px;
+  }
+
+  .hanoi-tower__rod {
+    height: 135px;
+  }
+
+  .hanoi-tower__base {
+    width: 92%;
+  }
+
+  .hanoi-tower__disks {
+    width: 88%;
+  }
+
+  .hanoi-disk {
+    height: 16px;
+    min-width: 32px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hanoi-game {
+    gap: 1rem;
+  }
+
+  .hanoi-game__toolbar,
+  .hanoi-game__panel {
+    padding: 0.9rem;
+    border-radius: 16px;
+  }
+
+  .hanoi-game__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .hanoi-stat__value {
+    font-size: 1.05rem;
+  }
+
+  .hanoi-board {
+    grid-template-columns: 1fr;
+  }
+
+  .hanoi-tower {
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+
+  .hanoi-tower__play-area {
+    height: 185px;
+  }
+
+  .hanoi-tower__rod {
+    height: 132px;
+  }
+
+  .hanoi-tower__base {
+    width: min(88%, 250px);
+  }
+
+  .hanoi-tower__disks {
+    width: min(84%, 230px);
+  }
+
+  #hanoi-completion-modal {
+    padding: 0.75rem;
+  }
+
+  #hanoi-completion-modal
+    > :not([data-hanoi-close-modal]) {
+    width: 100%;
+    max-height: 92vh;
+
+    padding: 1.25rem;
+    padding-top: 3.25rem;
+
+    border-radius: 18px;
+  }
+
+  #hanoi-replay-button,
+  #hanoi-next-level-button,
+  #hanoi-optimal-solution-button {
+    width: 100%;
+    margin-top: 0.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #hanoi-completion-modal
+    > :not([data-hanoi-close-modal]) {
+    animation: none;
+  }
+
+  .hanoi-tower,
+  .hanoi-disk {
+    transition: none;
+  }
+}

@@ -4,9 +4,12 @@
   --color-brand-navy: #0d2a4a;
   --color-brand-steel: #43627f;
   --color-brand-ice: #a4bad2;
+  --color-brand-mist: #759bb2;
+
   --color-brand-navy-rgb: 13 42 74;
   --color-brand-steel-rgb: 67 98 127;
   --color-brand-ice-rgb: 164 186 210;
+  --color-brand-mist-rgb: 117 155 178;
   --color-canvas-rgb: 246 249 252;
 
   --color-logo-stroke: var(--color-brand-navy);
