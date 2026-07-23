@@ -6,22 +6,18 @@ export function Footer(): string {
       <div class="site-footer__inner shell">
         <div class="site-footer__brand">
           <span class="site-footer__label">AR Dev Studio</span>
-          <p>
-            Arquitetura, engenharia e evolução contínua para sistemas digitais
-            que precisam sustentar crescimento real.
-          </p>
+          <p>Produtos digitais e sistemas web sob medida.</p>
         </div>
 
-        <div class="site-footer__contact" aria-label="Próximos passos">
-          <p class="site-footer__title">Pronto para evoluir seu sistema?</p>
+        <div class="site-footer__contact" aria-label="Contato">
           <a class="button button--footer" href="mailto:contato@ardevstudio.com">
             contato@ardevstudio.com
           </a>
         </div>
 
         <div class="site-footer__bottom">
-          <span>© ${currentYear} AR Dev Studio.</span>
-          <span>Software House para produtos digitais robustos.</span>
+          <span>&copy; ${currentYear} AR Dev Studio.</span>
+          <span>Software House.</span>
         </div>
       </div>
     </footer>

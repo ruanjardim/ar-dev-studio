@@ -27,6 +27,7 @@
 .is-ready .principle-card,
 .is-ready .diagnostic-card,
 .is-ready .service-card,
+.is-ready .project-card,
 .is-ready .stack-board,
 .is-ready .authority-card,
 .is-ready .process-step,
@@ -53,6 +54,7 @@
 }
 
 .is-ready .service-card:nth-child(2),
+.is-ready .project-card:nth-child(2),
 .is-ready .authority-card:nth-child(2),
 .is-ready .process-step:nth-child(2),
 .is-ready .maturity-card:nth-child(2),
@@ -62,6 +64,7 @@
 }
 
 .is-ready .service-card:nth-child(3),
+.is-ready .project-card:nth-child(3),
 .is-ready .authority-card:nth-child(3),
 .is-ready .process-step:nth-child(3),
 .is-ready .maturity-card:nth-child(3),
@@ -81,6 +84,7 @@
   .is-ready .principle-card,
   .is-ready .diagnostic-card,
   .is-ready .service-card,
+  .is-ready .project-card,
   .is-ready .stack-board,
   .is-ready .authority-card,
   .is-ready .process-step,

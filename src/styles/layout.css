@@ -12,20 +12,6 @@
   width: min(100% - 2rem, var(--container));
   margin-inline: auto;
 }
-.app-shell {
-  min-height: 100vh;
-  overflow-x: clip;
-  background:
-    linear-gradient(90deg, rgb(var(--color-brand-steel-rgb) / 5%) 1px, transparent 1px),
-    linear-gradient(180deg, rgb(var(--color-brand-ice-rgb) / 12%) 1px, transparent 1px),
-    var(--color-canvas);
-  background-size: 5rem 5rem;
-}
-
-.shell {
-  width: min(100% - 2rem, var(--container));
-  margin-inline: auto;
-}
 
 .site-main {
   position: relative;
@@ -33,7 +19,7 @@
 }
 
 .section {
-  padding-block: var(--space-10);
+  padding-block: var(--space-16);
 }
 
 .section--manifesto {
@@ -46,6 +32,11 @@
 }
 
 .section--services {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-line);
+}
+
+.section--projects {
   background: var(--color-surface);
   border-block: 1px solid var(--color-line);
 }
@@ -81,7 +72,7 @@
 }
 
 .section--conversion {
-  background: var(--color-canvas);
+  background: linear-gradient(180deg, var(--color-canvas), var(--color-surface-muted));
 }
 
 .section--qualification {
@@ -90,8 +81,8 @@
 }
 
 .section--labs {
-  background: linear-gradient(180deg, var(--color-surface), var(--color-canvas));
-  border-bottom: 1px solid var(--color-line);
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-line);
 }
 
 .section--final-cta {
@@ -119,8 +110,8 @@
 .conversion h2,
 .final-cta h2 {
   color: var(--color-ink);
-  font-size: 1.5rem;
-  line-height: 1.2;
+  font-size: 2rem;
+  line-height: 1.12;
   letter-spacing: 0;
 }
 
@@ -159,7 +150,7 @@
   }
 
   .section {
-    padding-block: var(--space-12);
+    padding-block: var(--space-20);
   }
 
   .section-heading h2,
@@ -169,6 +160,6 @@
   .stack h2,
   .conversion h2,
   .final-cta h2 {
-    font-size: 2.0rem;
+    font-size: 2.75rem;
   }
 }

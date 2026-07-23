@@ -8,7 +8,7 @@ type DefaultLayoutOptions = {
 export function DefaultLayout({ content }: DefaultLayoutOptions): string {
   return `
     <div class="app-shell">
-      <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+      <a class="skip-link" href="#conteudo">Ir para o conte&uacute;do</a>
       ${Header()}
       <main class="site-main" id="conteudo">
         ${content}
