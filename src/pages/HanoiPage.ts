@@ -4,103 +4,37 @@ export function HanoiPage(): string {
   return `
     <main class="hanoi-page">
       <section
-        class="hanoi-hero section"
-        aria-labelledby="hanoi-page-title"
+        class="hanoi-game-section"
+        aria-labelledby="hanoi-game-title"
       >
-        <div class="shell">
-          <div class="hanoi-hero__content">
+        <div class="shell hanoi-game-section__inner">
+          <div class="hanoi-game-section__intro">
             <a
               class="hanoi-back-link"
               href="/logic-lab"
               data-router-link
             >
-              <span aria-hidden="true">←</span>
+              <span aria-hidden="true">&larr;</span>
               Voltar ao AR Logic Lab
             </a>
 
-            <span class="eyebrow">AR Logic Lab</span>
+            <div class="hanoi-play-header">
+              <div>
+                <span class="eyebrow">Torre de Han&oacute;i</span>
 
-            <h1 id="hanoi-page-title">
-              Torre de Hanói
-            </h1>
+                <h1 id="hanoi-game-title">
+                  Resolva no menor caminho.
+                </h1>
+              </div>
 
-            <p class="hanoi-hero__description">
-              Um desafio clássico de lógica, estratégia e pensamento
-              algorítmico criado pelo matemático francês Édouard Lucas.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="hanoi-game-section section"
-        aria-labelledby="hanoi-game-title"
-      >
-        <div class="shell">
-          <div class="section-heading">
-            <span class="eyebrow">Desafio interativo</span>
-
-            <h2 id="hanoi-game-title">
-              Mova toda a torre para a última haste
-            </h2>
-
-            <p>
-              Escolha a quantidade de discos e tente concluir o desafio
-              utilizando o menor número possível de movimentos.
-            </p>
+              <p>
+                Mova os discos entre as hastes, acompanhe tempo e movimentos
+                e tente chegar ao m&iacute;nimo te&oacute;rico.
+              </p>
+            </div>
           </div>
 
           ${HanoiGame()}
-        </div>
-      </section>
-
-      <section
-        class="hanoi-about section"
-        aria-labelledby="hanoi-about-title"
-      >
-        <div class="shell">
-          <div class="hanoi-about__grid">
-            <article class="hanoi-info-card">
-              <span class="eyebrow">Origem</span>
-
-              <h2 id="hanoi-about-title">
-                Uma criação de Édouard Lucas
-              </h2>
-
-              <p>
-                A Torre de Hanói foi apresentada em 1883 pelo matemático
-                francês Édouard Lucas. O quebra-cabeça tornou-se uma
-                referência no estudo de raciocínio lógico, recursividade
-                e resolução estruturada de problemas.
-              </p>
-
-              <p>
-                Em sua versão clássica, uma torre formada por discos de
-                tamanhos diferentes precisa ser transferida de uma haste
-                para outra, respeitando um conjunto simples de regras.
-              </p>
-            </article>
-
-            <article class="hanoi-info-card">
-              <span class="eyebrow">Objetivo</span>
-
-              <h2>
-                Como funciona
-              </h2>
-
-              <p>
-                Todos os discos começam organizados na primeira haste,
-                do maior para o menor. O objetivo é reconstruir a mesma
-                torre na terceira haste.
-              </p>
-
-              <p>
-                Embora as regras sejam simples, o número necessário de
-                movimentos cresce rapidamente conforme novos discos são
-                adicionados.
-              </p>
-            </article>
-          </div>
         </div>
       </section>
 
@@ -113,7 +47,7 @@ export function HanoiPage(): string {
             <span class="eyebrow">Regras do jogo</span>
 
             <h2 id="hanoi-rules-title">
-              Três regras fundamentais
+              Tr&ecirc;s restri&ccedil;&otilde;es simples, um desafio exponencial.
             </h2>
           </div>
 
@@ -123,13 +57,10 @@ export function HanoiPage(): string {
                 01
               </span>
 
-              <h3>
-                Um disco por vez
-              </h3>
+              <h3>Um disco por vez</h3>
 
               <p>
-                Cada movimento permite transferir apenas um disco entre
-                as hastes.
+                Cada movimento transfere apenas o disco superior de uma haste.
               </p>
             </article>
 
@@ -138,13 +69,11 @@ export function HanoiPage(): string {
                 02
               </span>
 
-              <h3>
-                Apenas o disco superior
-              </h3>
+              <h3>Apenas o topo move</h3>
 
               <p>
-                Somente o disco que estiver no topo de uma haste poderá
-                ser movimentado.
+                Discos abaixo de outro disco ficam bloqueados at&eacute; serem
+                liberados.
               </p>
             </article>
 
@@ -153,13 +82,10 @@ export function HanoiPage(): string {
                 03
               </span>
 
-              <h3>
-                Menor sobre maior
-              </h3>
+              <h3>Menor sobre maior</h3>
 
               <p>
-                Um disco maior nunca poderá ser colocado sobre um disco
-                menor.
+                Um disco maior nunca pode ser colocado sobre um disco menor.
               </p>
             </article>
           </div>
@@ -167,38 +93,45 @@ export function HanoiPage(): string {
       </section>
 
       <section
-        class="hanoi-math section"
-        aria-labelledby="hanoi-math-title"
+        class="hanoi-about section"
+        aria-labelledby="hanoi-about-title"
       >
         <div class="shell">
-          <div class="hanoi-math__content">
-            <div>
-              <span class="eyebrow">Pensamento algorítmico</span>
+          <div class="hanoi-about__grid">
+            <article class="hanoi-info-card">
+              <span class="eyebrow">Contexto hist&oacute;rico</span>
 
-              <h2 id="hanoi-math-title">
-                O mínimo teórico de movimentos
+              <h2 id="hanoi-about-title">
+                Uma cria&ccedil;&atilde;o de &Eacute;douard Lucas.
               </h2>
 
               <p>
-                Para uma torre com
-                <strong>n</strong>
-                discos, o menor número possível de movimentos é
-                calculado pela expressão:
+                A Torre de Han&oacute;i foi apresentada em 1883 pelo matem&aacute;tico
+                franc&ecirc;s &Eacute;douard Lucas. O quebra-cabe&ccedil;a tornou-se
+                uma refer&ecirc;ncia para estudar racioc&iacute;nio l&oacute;gico,
+                recursividade e resolu&ccedil;&atilde;o estruturada de problemas.
               </p>
-            </div>
+            </article>
 
-            <div
-              class="hanoi-formula"
-              aria-label="Dois elevado a n menos um"
-            >
-              2<sup>n</sup> − 1
-            </div>
+            <article class="hanoi-info-card hanoi-info-card--accent">
+              <span class="eyebrow">Conceito de l&oacute;gica</span>
 
-            <p>
-              Com três discos, por exemplo, o desafio pode ser concluído
-              em 7 movimentos. Com oito discos, o mínimo aumenta para
-              255 movimentos.
-            </p>
+              <h2>
+                O m&iacute;nimo te&oacute;rico de movimentos.
+              </h2>
+
+              <p>
+                Para uma torre com <strong>n</strong> discos, o menor n&uacute;mero
+                poss&iacute;vel de movimentos &eacute; calculado por:
+              </p>
+
+              <div
+                class="hanoi-formula"
+                aria-label="Dois elevado a n menos um"
+              >
+                2<sup>n</sup> - 1
+              </div>
+            </article>
           </div>
         </div>
       </section>

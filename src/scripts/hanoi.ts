@@ -272,6 +272,8 @@ export function setupHanoiGame(): void {
   let moveTotal = 0;
   let gameCompleted = false;
   let dragState: DragState | null = null;
+  let selectedTower: TowerIndex | null = null;
+  let suppressNextTowerClick = false;
 
   let timerId: number | null = null;
   let timerStartedAt = 0;
@@ -389,6 +391,22 @@ export function setupHanoiGame(): void {
     );
   }
 
+  function updateTowerSelection(): void {
+    elements.towerButtons.forEach((tower, index) => {
+      const isSelected = selectedTower === index;
+
+      tower.classList.toggle(
+        "is-selected",
+        isSelected,
+      );
+
+      tower.setAttribute(
+        "aria-pressed",
+        String(isSelected),
+      );
+    });
+  }
+
   function updateInterface(): void {
     elements.moveCount.textContent =
       String(moveTotal);
@@ -404,6 +422,7 @@ export function setupHanoiGame(): void {
     elements.diskCountSelect.disabled =
       isDemonstrating;
 
+    updateTowerSelection();
     renderDisks();
   }
 
@@ -563,6 +582,7 @@ export function setupHanoiGame(): void {
     moveHistory = [];
     moveTotal = 0;
     gameCompleted = false;
+    selectedTower = null;
 
     elements.diskCountSelect.value =
       String(diskCount);
@@ -604,6 +624,83 @@ export function setupHanoiGame(): void {
     }
 
     return movingDisk < destinationDisk;
+  }
+
+  function selectTower(
+    towerIndex: TowerIndex,
+  ): void {
+    const topDisk = getTopDisk(towerIndex);
+
+    if (topDisk === undefined) {
+      selectedTower = null;
+
+      setStatus(
+        "Escolha uma torre que tenha discos disponíveis.",
+      );
+
+      updateInterface();
+      return;
+    }
+
+    selectedTower = towerIndex;
+
+    setStatus(
+      `Disco ${topDisk} selecionado. Escolha a torre de destino.`,
+    );
+
+    updateInterface();
+  }
+
+  function handleTowerClick(
+    event: MouseEvent,
+  ): void {
+    if (suppressNextTowerClick) {
+      suppressNextTowerClick = false;
+      return;
+    }
+
+    if (
+      gameCompleted ||
+      isDemonstrating ||
+      dragState
+    ) {
+      return;
+    }
+
+    const target = event.currentTarget;
+
+    if (!(target instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const towerIndex = Number(
+      target.dataset.hanoiTower,
+    );
+
+    if (!isTowerIndex(towerIndex)) {
+      return;
+    }
+
+    if (selectedTower === null) {
+      selectTower(towerIndex);
+      return;
+    }
+
+    if (selectedTower === towerIndex) {
+      selectedTower = null;
+
+      setStatus("Seleção cancelada.");
+      updateInterface();
+      return;
+    }
+
+    const originTower = selectedTower;
+    const moved = moveDisk(originTower, towerIndex);
+
+    if (moved) {
+      selectedTower = null;
+      updateInterface();
+    }
   }
 
   function checkVictory(): void {
@@ -829,6 +926,11 @@ export function setupHanoiGame(): void {
 
     dragState.ghostElement.remove();
     dragState = null;
+    suppressNextTowerClick = true;
+
+    window.setTimeout(() => {
+      suppressNextTowerClick = false;
+    }, 120);
 
     resetTowerHighlights();
 
@@ -932,6 +1034,9 @@ export function setupHanoiGame(): void {
     const ghostElement =
       createDragGhost(diskElement);
 
+    selectedTower = null;
+    updateTowerSelection();
+
     dragState = {
       fromTower: towerValue,
       disk: diskValue,
@@ -993,6 +1098,8 @@ export function setupHanoiGame(): void {
       0,
       moveTotal - 1,
     );
+
+    selectedTower = null;
 
     setStatus(
       "Último movimento desfeito.",
@@ -1176,6 +1283,13 @@ export function setupHanoiGame(): void {
     "pointerdown",
     handleDiskPointerDown,
   );
+
+  elements.towerButtons.forEach((towerButton) => {
+    towerButton.addEventListener(
+      "click",
+      handleTowerClick,
+    );
+  });
 
   elements.diskCountSelect.addEventListener(
     "change",

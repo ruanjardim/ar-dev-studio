@@ -7,13 +7,18 @@ type NavigationItem = {
 
 const navigationItems: NavigationItem[] = [
   { label: "Servi&ccedil;os", href: "/#servicos" },
+  { label: "Projetos", href: "/#projetos" },
   { label: "Processo", href: "/#caminho" },
-  { label: "AR Logic Lab", href: "/logic-lab" },
-  { label: "FAQ", href: "/#faq" },
+];
+
+const logicLabItems: NavigationItem[] = [
+  { label: "Torre de Han&oacute;i", href: "/logic-lab/torre-de-hanoi" },
+  { label: "Xadrez", href: "/logic-lab/xadrez" },
+  { label: "Cubo M&aacute;gico", href: "/logic-lab/cubo-magico" },
 ];
 
 function renderNavigation(): string {
-  return navigationItems
+  const primaryItems = navigationItems
     .map(
       (item) => `
         <a
@@ -26,6 +31,40 @@ function renderNavigation(): string {
       `,
     )
     .join("");
+
+  return `
+    ${primaryItems}
+
+    <div class="site-nav__group">
+      <button
+        class="site-nav__trigger"
+        type="button"
+        aria-label="Abrir jogos do Logic Lab"
+        aria-haspopup="true"
+      >
+        Logic Lab
+      </button>
+
+      <div
+        class="site-nav__menu"
+        aria-label="Jogos do Logic Lab"
+      >
+        ${logicLabItems
+          .map(
+            (item) => `
+              <a
+                class="site-nav__submenu-link"
+                href="${item.href}"
+                data-router-link
+              >
+                ${item.label}
+              </a>
+            `,
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
 }
 
 function ThemeToggle(): string {

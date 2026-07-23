@@ -137,6 +137,7 @@ export function HanoiGame(): string {
             class="hanoi-tower"
             type="button"
             data-hanoi-tower="0"
+            aria-pressed="false"
             aria-label="Haste de origem"
           >
             <span class="hanoi-tower__name">
@@ -165,6 +166,7 @@ export function HanoiGame(): string {
             class="hanoi-tower"
             type="button"
             data-hanoi-tower="1"
+            aria-pressed="false"
             aria-label="Haste auxiliar"
           >
             <span class="hanoi-tower__name">
@@ -193,6 +195,7 @@ export function HanoiGame(): string {
             class="hanoi-tower"
             type="button"
             data-hanoi-tower="2"
+            aria-pressed="false"
             aria-label="Haste de destino"
           >
             <span class="hanoi-tower__name">

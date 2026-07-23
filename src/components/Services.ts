@@ -2,30 +2,32 @@ type ServiceTrack = {
   code: string;
   title: string;
   description: string;
-  outcomes: string[];
 };
 
 const serviceTracks: ServiceTrack[] = [
   {
     code: "S01",
-    title: "Sistemas web sob medida",
+    title: "Sistemas e plataformas",
     description:
-      "Construção de aplicações web com arquitetura modular, interfaces consistentes e base preparada para evolução contínua.",
-    outcomes: ["Front-end escalável", "Fluxos de negócio", "Integrações"],
+      "Aplica&ccedil;&otilde;es web para organizar processos, dados, fluxos internos e opera&ccedil;&otilde;es digitais.",
   },
   {
     code: "S02",
-    title: "Arquitetura e evolução",
+    title: "Sites institucionais",
     description:
-      "Diagnóstico, desenho técnico e reorganização de sistemas para reduzir complexidade e liberar crescimento com segurança.",
-    outcomes: ["Mapeamento técnico", "Refatoração", "Roadmap evolutivo"],
+      "Presen&ccedil;a digital clara, elegante e preparada para representar empresas com credibilidade.",
   },
   {
     code: "S03",
-    title: "Automação e operação",
+    title: "Experi&ecirc;ncias interativas",
     description:
-      "Integrações, rotinas e painéis que conectam dados, processos e times sem depender de trabalho manual repetitivo.",
-    outcomes: ["APIs", "Rotinas internas", "Observabilidade"],
+      "Laborat&oacute;rios, interfaces demonstrativas e experi&ecirc;ncias visuais que aproximam produto e tecnologia.",
+  },
+  {
+    code: "S04",
+    title: "Evolu&ccedil;&atilde;o de produtos",
+    description:
+      "Melhoria, manuten&ccedil;&atilde;o e reorganiza&ccedil;&atilde;o de bases existentes para sustentar novas etapas.",
   },
 ];
 
@@ -37,9 +39,6 @@ function renderServices(): string {
           <span class="service-card__code">${service.code}</span>
           <h3>${service.title}</h3>
           <p>${service.description}</p>
-          <ul class="service-card__outcomes" aria-label="Entregáveis de ${service.title}">
-            ${service.outcomes.map((outcome) => `<li>${outcome}</li>`).join("")}
-          </ul>
         </article>
       `,
     )
@@ -51,15 +50,15 @@ export function Services(): string {
     <section class="section section--services" id="servicos" aria-labelledby="services-title">
       <div class="section__inner shell">
         <div class="section-heading">
-          <p class="eyebrow">Serviços</p>
-          <h2 id="services-title">Construímos software como infraestrutura de crescimento.</h2>
+          <p class="eyebrow">O que desenvolvemos</p>
+          <h2 id="services-title">Solu&ccedil;&otilde;es digitais com fun&ccedil;&atilde;o real no neg&oacute;cio.</h2>
           <p>
-            A entrega combina produto, engenharia e operação para criar sistemas
-            que continuam úteis depois da primeira versão.
+            A AR Dev Studio cria interfaces e sistemas para empresas que
+            precisam vender melhor, operar com mais clareza ou evoluir produtos.
           </p>
         </div>
 
-        <div class="service-grid">
+        <div class="service-grid service-grid--compact">
           ${renderServices()}
         </div>
       </div>

@@ -55,10 +55,10 @@
 }
 
 .hero h1 {
-  max-width: 12ch;
+  max-width: 25ch;
   color: var(--color-ink);
-  font-size: 2.75rem;
-  line-height: 0.98;
+  font-size: 2.1rem;
+  line-height: 1.15;
   letter-spacing: 0;
   text-wrap: balance;
 }
@@ -347,7 +347,7 @@
 
 @media (min-width: 48rem) {
   .hero {
-    padding-block: var(--space-16) var(--space-20);
+    padding-block: var(--space-14, 3.5rem) var(--space-16);
   }
 
   .hero__inner {
@@ -355,7 +355,7 @@
   }
 
   .hero h1 {
-    font-size: 4.75rem;
+    font-size: 2.9rem;
   }
 
   .hero__lead {

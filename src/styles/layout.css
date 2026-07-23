@@ -12,6 +12,20 @@
   width: min(100% - 2rem, var(--container));
   margin-inline: auto;
 }
+.app-shell {
+  min-height: 100vh;
+  overflow-x: clip;
+  background:
+    linear-gradient(90deg, rgb(var(--color-brand-steel-rgb) / 5%) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(var(--color-brand-ice-rgb) / 12%) 1px, transparent 1px),
+    var(--color-canvas);
+  background-size: 5rem 5rem;
+}
+
+.shell {
+  width: min(100% - 2rem, var(--container));
+  margin-inline: auto;
+}
 
 .site-main {
   position: relative;
@@ -19,7 +33,7 @@
 }
 
 .section {
-  padding-block: var(--space-16);
+  padding-block: var(--space-10);
 }
 
 .section--manifesto {
@@ -33,7 +47,7 @@
 
 .section--services {
   background: var(--color-surface);
-  border-top: 1px solid var(--color-line);
+  border-block: 1px solid var(--color-line);
 }
 
 .section--diagnostic {
@@ -76,8 +90,8 @@
 }
 
 .section--labs {
-  background: var(--color-surface);
-  border-block: 1px solid var(--color-line);
+  background: linear-gradient(180deg, var(--color-surface), var(--color-canvas));
+  border-bottom: 1px solid var(--color-line);
 }
 
 .section--final-cta {
@@ -105,8 +119,8 @@
 .conversion h2,
 .final-cta h2 {
   color: var(--color-ink);
-  font-size: 2rem;
-  line-height: 1.12;
+  font-size: 1.5rem;
+  line-height: 1.2;
   letter-spacing: 0;
 }
 
@@ -145,7 +159,7 @@
   }
 
   .section {
-    padding-block: var(--space-20);
+    padding-block: var(--space-12);
   }
 
   .section-heading h2,
@@ -155,6 +169,6 @@
   .stack h2,
   .conversion h2,
   .final-cta h2 {
-    font-size: 2.75rem;
+    font-size: 2.0rem;
   }
 }

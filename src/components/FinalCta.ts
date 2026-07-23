@@ -1,16 +1,16 @@
 export function FinalCta(): string {
   const mailto =
-    "mailto:contato@ardevstudio.com?subject=Diagnostico%20tecnico%20-%20AR%20Dev%20Studio";
+    "mailto:contato@ardevstudio.com?subject=Projeto%20digital%20-%20AR%20Dev%20Studio";
 
   return `
     <section class="section section--final-cta" id="contato" aria-labelledby="contact-title">
       <div class="final-cta shell" aria-describedby="contact-description">
         <div class="final-cta__content">
           <p class="eyebrow">Pr&oacute;ximo movimento</p>
-          <h2 id="contact-title">Vamos mapear o sistema que precisa existir depois da pr&oacute;xima entrega.</h2>
+          <h2 id="contact-title">Vamos conversar sobre o pr&oacute;ximo produto digital da sua empresa.</h2>
           <p id="contact-description">
-            Traga o contexto do seu produto, opera&ccedil;&atilde;o ou base atual. A conversa inicial
-            organiza risco, prioridade e dire&ccedil;&atilde;o t&eacute;cnica antes de qualquer linha de c&oacute;digo.
+            Traga uma ideia, um processo que precisa virar sistema ou uma base
+            que precisa evoluir. A primeira conversa organiza o caminho.
           </p>
         </div>
 
@@ -20,15 +20,15 @@ export function FinalCta(): string {
           <dl class="contact-card__details">
             <div>
               <dt>Primeiro passo</dt>
-              <dd>Diagn&oacute;stico t&eacute;cnico</dd>
+              <dd>Conversa de contexto</dd>
             </div>
             <div>
               <dt>Foco</dt>
-              <dd>Arquitetura, risco e evolu&ccedil;&atilde;o</dd>
+              <dd>Produto, arquitetura e evolu&ccedil;&atilde;o</dd>
             </div>
           </dl>
           <a class="button button--primary" href="${mailto}">
-            Solicitar diagn&oacute;stico t&eacute;cnico
+            Iniciar conversa
           </a>
         </div>
       </div>

@@ -1,8 +1,12 @@
 import { DefaultLayout } from "./layouts/DefaultLayout";
+import { ChessPage } from "./pages/ChessPage";
+import { CubePage } from "./pages/CubePage";
 import { HanoiPage } from "./pages/HanoiPage";
 import { Home } from "./pages/Home";
 import { LogicLab } from "./pages/LogicLab";
 import { createRouter } from "./router/router";
+import { setupChessGame } from "./scripts/chess";
+import { setupCubeGame } from "./scripts/cube";
 import { setupHanoiGame } from "./scripts/hanoi";
 import { setupThemeToggle } from "./scripts/theme";
 import "./styles/theme.css";
@@ -63,6 +67,22 @@ export function setupApp(root: HTMLElement): void {
             content: HanoiPage(),
           }),
       },
+      {
+        path: "/logic-lab/xadrez",
+        title: "Xadrez | AR Logic Lab",
+        view: () =>
+          DefaultLayout({
+            content: ChessPage(),
+          }),
+      },
+      {
+        path: "/logic-lab/cubo-magico",
+        title: "Cubo Mágico | AR Logic Lab",
+        view: () =>
+          DefaultLayout({
+            content: CubePage(),
+          }),
+      },
     ],
     notFound: {
       path: "/404",
@@ -75,6 +95,8 @@ export function setupApp(root: HTMLElement): void {
     afterRender: () => {
       setupThemeToggle();
       setupHanoiGame();
+      setupChessGame();
+      setupCubeGame();
     },
   });
 

@@ -5,24 +5,24 @@ type ConversionStep = {
 
 const conversionSteps: ConversionStep[] = [
   {
-    title: "Contexto",
+    title: "Entender",
     description:
-      "Você apresenta o produto, sistema atual, operação e principal tensão técnica.",
+      "Mapeamos objetivo, p&uacute;blico, opera&ccedil;&atilde;o e restri&ccedil;&otilde;es do projeto.",
   },
   {
-    title: "Diagnóstico",
+    title: "Desenhar",
     description:
-      "Mapeamos riscos, prioridades, integrações, limites e pontos de evolução.",
+      "Organizamos escopo, arquitetura, interface e prioridades de entrega.",
   },
   {
-    title: "Blueprint",
+    title: "Construir",
     description:
-      "Transformamos o diagnóstico em direção arquitetural e plano de execução.",
+      "Desenvolvemos a solu&ccedil;&atilde;o com base clara, responsiva e sustent&aacute;vel.",
   },
   {
-    title: "Entrega",
+    title: "Evoluir",
     description:
-      "Implementamos a primeira evolução com critérios claros e base preparada para continuidade.",
+      "Ajustamos, mantemos e preparamos novas etapas sem perder organiza&ccedil;&atilde;o.",
   },
 ];
 
@@ -47,8 +47,12 @@ export function ConversionPath(): string {
     <section class="section section--conversion" id="caminho" aria-labelledby="conversion-title">
       <div class="section__inner shell conversion">
         <div class="section-heading">
-          <p class="eyebrow">Caminho de trabalho</p>
-          <h2 id="conversion-title">O primeiro contato já começa organizando decisão.</h2>
+          <p class="eyebrow">Processo resumido</p>
+          <h2 id="conversion-title">Arquitetura antes do c&oacute;digo. Evolu&ccedil;&atilde;o al&eacute;m da entrega.</h2>
+          <p>
+            O processo completo pode ganhar uma p&aacute;gina pr&oacute;pria depois.
+            Na Home, ele aparece como uma linha simples de trabalho.
+          </p>
         </div>
 
         <ol class="conversion-list" aria-label="Caminho de trabalho da AR Dev Studio">
